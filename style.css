@@ -19,6 +19,15 @@ h1, h2 {
     border-bottom: 6px solid #806C00;
 }
 
+.underline.small {
+    border-bottom-width: 3px;
+}
+
+dt {
+    text-align: center;
+    font-size: 1.3em;
+}
+
 @media(max-width: 800px) {
     body {
         font-size: 23px;
