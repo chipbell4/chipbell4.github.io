@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="nes.js"></script>
+        <script src="kk.js"></script>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container {
+    flex: 1;
+    margin: 0 1em 0 1em;
+    width: 25%;
+    flex-basis: 20%;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 20em;
+    font-family: monospace;
+}
+
+textarea ~ span {
+    font-weight: bold;
+    color: #ff5353;
+}
+
+button {
+    width: 25%;
+}
+
+</style>
+    </head>
+    <body>
+<div class="container">
+    <h2>PWM 1</h2>
+    <textarea id="pwm1"></textarea>
+    <span id="pwm1-errors"></span>
+</div>
+
+<div class="container">
+    <h2>PWM 2</h2>
+    <textarea id="pwm2"></textarea>
+    <span id="pwm2-errors"></span>
+</div>
+
+<div class="container">
+    <h2>Triangle</h2>
+    <textarea id="triangle"></textarea>
+    <span id="triangle-errors"></span>
+</div>
+
+<div class="container">
+    <h2>Noise</h2>
+    <textarea id="noise"></textarea>
+    <span id="noise-errors"></span>
+</div>
+<button id="play">Play</button>
+<button id="stop">Stop</button>
+<button id="kk">Load Kart Kingdom</button>
+
+<script>
+var elements = {
+    PWM1: document.getElementById('pwm1'),
+    PWM2: document.getElementById('pwm2'),
+    TRIANGLE: document.getElementById('triangle'),
+    NOISE: document.getElementById('noise')
+};
+
+document.getElementById('play').addEventListener('click', function() {
+    var data = {};
+    var isValid = true;
+    Object.keys(elements).forEach(function(key) {
+        try {
+            data[key] = NES.Mml.mmlToMelody(elements[key].value);
+            elements[key].nextElementSibling.innerText = '';
+        } catch(e) {
+            elements[key].nextElementSibling.innerText = e.message;
+            isValid = false;
+        }
+    });
+
+    if(!isValid) {
+        return;
+    }
+
+    NES.Sequencer.play(data);
+});
+
+document.getElementById('stop').addEventListener('click', NES.Sequencer.stop.bind(NES.Sequencer));
+
+document.getElementById('kk').addEventListener('click', function() {
+    Object.keys(elements).forEach(function(key) {
+        elements[key].value = KK.melody[key];
+    });
+});
+        </script>
+    </body>
+</html>
