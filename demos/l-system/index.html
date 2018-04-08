@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <h1>L Systems</h1>
+        <div class="flex-container">
+            <div class="flex-item">
+                <p>
+                This page can draw an <a target="_blank" href="https://en.wikipedia.org/wiki/L-system">L-System</a> from a given ruleset and axioms.
+                This works by starting with an initial string, called the <em>axiom</em>, and then applying transformation rules to it.
+                For example, if the axiom was <code>F</code> and the ruleset was a single rule, <code>F → FRF</code>, a single
+                application of the ruleset would convert the axiom to <code>FRF</code>. A second application would give <code>FRFRFRF</code>
+                since the two <code>F</code>s would be replaced. In the case of conflicting rules, e.g. <code>F → FR</code> and <code>F → FL</code>,
+                the choice of replacement is random which can result in interesting patterns.
+                </p>
+                <p>
+                One way of visualizing an L-system is interpret the characters as drawing commands ala Logo and <a target="_blank" href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Graphics</a>.
+                For instance we can interpret <code>F</code> as "move forward", <code>L</code> as "turn left", and <code>R</code> as "turn right".
+                However, we can acheive greater complexity if we add two additional commands: <code>[</code> which "remembers" your previous location and <code>]</code> which moves the
+                cursor/turtle/pen back to the location it was at when the last <code>[</code> was encountered.
+                </p>
+                <p>
+                The best way to explore is start from some of the presets so you can get a feel for how the rules interact:
+                <br/>
+                <select id="presets">
+                    <option disabled selected value> -- </option>
+                    <option value="bird">Bird</option>
+                    <option value="dandelion">Dandelion</option>
+                    <option value="coral">Coral</option>
+                    <option value="koch">Koch Snowflake</option>
+                    <option value="maze">Maze</option>
+                    <option value="plant">Plant</option>
+                    <option value="dragon">Dragon Curve</option>
+                    <option value="tunnel">Tunnel</option>
+                </select>
+                </p>
+                <button id="redraw">Redraw Ruleset</button> <br /> <br /> <!-- Don't judge me -->
+                <div>
+                    <label>Axiom <input type="text" id="axiom" value="F" /></label>
+                </div>
+                <div>
+                    <label>Iterations <input type="range" id="iterations" min="1" max="20" step="1" value="5" /></label>
+                </div>
+                <div>
+                    <label>Angle <input type="range" id="angle" min="0.0" max="3.14159" step="0.001" value="0.78" /></label>
+                </div>
+                <div>
+                    <label>Angle Chaos <input type="range" id="angle-chaos" min="0.0" max="1.0" step="0.01" value="0.0" /></label>
+                </div>
+                <div>
+                    <label>Distance Chaos <input type="range" id="distance-chaos" min="0.0" max="1.0" step="0.01" value="0.0" /></label>
+                </div>
+                <div id="rules">
+                </div>
+                <button id="add-rule">+</button>
+            </div>
+            <div class="flex-item">
+                <svg id="canvas" viewBox="0 0 100 100">
+                </svg>
+            </div>
+        </div>
+        <div class="template" id="rule-template">
+            <div class="rule">
+                <input type="text" class="start" />
+                →
+                <input type="text" class="end" /> 
+                <button class="remove-rule">&times;</button>
+            </div>
+        </div>
+        <script src="examples.js"></script>
+        <script src="ui.js"></script>
+        <script src="l-system.js"></script>
+        <script src="turtle.js"></script>
+        <script src="canvas.js"></script>
+        <script>
+            UI.init();
+        </script>
+    </body>
+</html>
