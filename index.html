@@ -5,67 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="Description" content="Chip Bell's Home Page. There's a few links to some cool/weird things he made there too" />
 <style>
-body {
-    max-width: 800px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-
-    background-color: #f8f8f8;
-    color: #002627;
-    font-size: 20px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.4em;
-}
-
-p {
-    margin-bottom: 2.5em;
-}
-
-dt {
-    margin-bottom: 0.5em;
-}
-
-dd {
-    margin-bottom: 1.5em;
-}
-
-@media(max-width: 700px) {
-    body {
-        font-size: 17px;
-    }
-}
-
-@media(max-width: 600px) {
-    body {
-        font-size: 15px;
-    }
-}
-
-a {
-    text-decoration: none;
-    color: rgb(0, 0, 238);
-    padding: 3px;
-    border-radius: 2px;
-}
-
-a:visited {
-    color: rgb(85, 26, 139);
-}
-
-a:hover {
-    background-color: rgb(0, 0, 238);
-    color: white;
-}
-
-a:hover:visited {
-    background-color: rgb(85, 26, 139);
-}
+*{box-sizing:border-box}body{width:90%;margin-top:0;margin-left:auto;margin-right:auto;max-width:960px;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-weight:300;font-size:22px;line-height:1.3em;color:#333}@media(max-width:800px){body{font-size:19px}}@media(max-width:700px){body{font-size:16px;font-weight:normal}}@media(max-width:600px){body{font-size:14px}}@media(max-width:500px){body{width:95%}}h1,h2{text-align:center}h1{margin-bottom:1.5em;margin-top:1.5em}p#intro{margin-bottom:2em}ul{padding:0}ul#experiments-list *{text-align:center;list-style-type:none}ul#experiments-list h2{font-weight:normal;margin-top:0}ul#experiments-list li.experiment{border-top:1px solid black;padding-top:2em;padding-bottom:2em}ul#experiments-list li.experiment:last-child{border-bottom:1px solid black}li.experiment ul li{margin-bottom:1em}li.experiment ul li:last-child{margin-bottom:0}canvas.background{position:fixed;top:0;left:0;z-index:-1}
 </style>
     </head>
     <body>
         <h1>Hello World</h1>
-        <p>
+        <p id="intro">
         Hi! My name is Chip Bell and I'm a developer in DC area. I currently work for PBS KIDS building educational
         apps and games for kids. I have a background in web development in PHP and JavaScript, along with graphics and
         applied math. In the past, I've also been a volunteer coach for the <a href="https://github.com/MercerBinaryBears/">Mercer University competitive
@@ -73,36 +18,50 @@ a:hover:visited {
         by!
         </p>
         <h2>Some Stuff I've Done</h2>
-        <dl>
-            <dt><a href="./demos/dead-eye/index.html">Dead Eye</a></dt>
-            <dd>
-            Dead Eye is a Halloween-themed shooting gallery in the style of the Atari 5200. It uses no external assets
-            aside from the score font; everything else is rendered/sythesized on-the-fly for the game, making the total
-            weight of the game come in at around 100KB.
-            </dd>
-            <dt><a href="./demos/nes/index.html">NES Sequencer</a></dt>
-            <dd>
-            In this sequencer, I used the WebAudio API to emulate the Audio Processing Unit of the original Nintendo
-            Entertainment System. I've also provided some demo songs too. The <a href="https://github.com/chipbell4/nes-sequencer">README on GitHub</a>
-            has a write-up of some of the implementation details, and how you could make your own songs.
-            </dd>
-            <dt><a href="./demos/l-system/index.html">L System Viewer</a></dt>
-            <dd>
-            I also wrote a viewer for L-Systems, rule-based systems for building strings. Surprisingly simple patterns can be used to construct very beautiful, complex structures.
-            </dd>
-            <dt><a href="https://github.com/MercerBinaryBears/Judge">Judge</a></dt>
-            <dd>
-            Judge is programming contest administration software written in PHP and Laravel 4. I've used for the last
-            2 years or so to help run practices for Mercer University. It has a <a href="https://coveralls.io/github/MercerBinaryBears/Judge?branch=develop">full test suite</a>
-            and is fairly painless to setup and manage.
-            </dd>
-            <dt><a href="https://github.com/MercerBinaryBears/problem-sets">Problem Set Manager</a></dt>
-            <dd>
-            The problem set manager serves as an archive for past competition problems for students. It allows me, a
-            coach, to upload a PDF of a problem set and split it into multiple PDFs (one for each problem in the set).
-            I can then tag each problem under various topics such as Graph Theory or Combinatorics, and upload
-            test data sets and solutions for students to use when practicing and learning.
-            </dd>
-        </dl>
+        <ul id="experiments-list">
+            <li class="experiment">
+                <h2><a href="./demos/dead-eye/index.html">Dead Eye</a></h2>
+                Dead Eye is a Halloween-themed shooting gallery in the style of the Atari 5200. It uses no external assets
+                aside from the score font; everything else is rendered/sythesized on-the-fly for the game, making the total
+                weight of the game come in at around 100KB.
+            </li>
+            <li class="experiment">
+                <h2><a href="demos/wave/index.html">Wave Simulation</a></h2>
+                This was a grad-school project where I used FEM analysis to simulate a drum head in real-time. The demo allows you to draw your own drumhead, and it can triangulate that into a mesh that it can feed into a FEM simulation. It incorporates the wave equation with both a dampening term and elasiticty.
+            </li>
+            <li class="experiment">
+                <h2><a href="./demos/nes/index.html">NES Sequencer</a></h2>
+                In this sequencer, I used the WebAudio API to emulate the Audio Processing Unit of the original Nintendo
+                Entertainment System. I've also provided some demo songs too. The <a href="https://github.com/chipbell4/nes-sequencer">README on GitHub</a>
+                has a write-up of some of the implementation details, and how you could make your own songs.
+            </li>
+            <li class="experiment">
+                <h2><a href="./demos/l-system/index.html">L System Viewer</a></h2>
+                I also wrote a viewer for L-Systems, rule-based systems for building strings. Surprisingly simple patterns can be used to construct very beautiful, complex structures.
+            </li>
+
+            <li class="experiment">
+                <h2><a href="https://github.com/MercerBinaryBears/Judge">Judge</a></h2>
+                Judge is programming contest administration software written in PHP and Laravel 4. I've used for the last
+                2 years or so to help run practices for Mercer University. It has a <a href="https://coveralls.io/github/MercerBinaryBears/Judge?branch=develop">full test suite</a>
+                and is fairly painless to setup and manage.
+            </li>
+
+            <li class="experiment">
+                <h2><a href="https://github.com/MercerBinaryBears/problem-sets">Problem Set Manager</a></h2>
+                The problem set manager serves as an archive for past competition problems for students. It allows me, a
+                coach, to upload a PDF of a problem set and split it into multiple PDFs (one for each problem in the set).
+                I can then tag each problem under various topics such as Graph Theory or Combinatorics, and upload
+                test data sets and solutions for students to use when practicing and learning.
+            </li>
+        </ul>
+        <script src="thang.js" async></script>
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-33079482-1', 'auto');
+ga('send', 'pageview')
+        </script>
     </body>
 </html>
