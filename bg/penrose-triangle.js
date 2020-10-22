@@ -57,4 +57,28 @@ export function split(triangle = baseTriangle) {
   ];
 };
 
-console.log(split(baseTriangle));
+export function *splitMultiple(n = 10) {
+  let triangles = [baseTriangle];
+
+  for (let i = 0; i < n; i++) {
+    const newTriangles = [];
+    for (const triangle of triangles) {
+      newTriangles.push.apply(newTriangles, split(triangle));
+
+      // wait until given permission to go forward
+      yield;
+    }
+
+    triangles = newTriangles;
+  }
+
+  return triangles;
+}
+
+const worker = splitMultiple(5);
+let result = worker.next();
+while (!result.done) {
+  result = worker.next();
+}
+
+console.log(result.value);
