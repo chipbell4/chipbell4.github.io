@@ -74,11 +74,3 @@ export function *splitMultiple(n = 10) {
 
   return triangles;
 }
-
-const worker = splitMultiple(5);
-let result = worker.next();
-while (!result.done) {
-  result = worker.next();
-}
-
-console.log(result.value);
