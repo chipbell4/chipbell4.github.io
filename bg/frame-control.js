@@ -14,3 +14,24 @@ export function budget(generator, millis) {
     return undefined;
   }; 
 }
+
+export function frameBudget(generator) {
+  const doWork = budget(generator, 16);
+
+  let frameCount = 0;
+
+  return new Promise((resolve) => {
+    const workInFrame = () => {
+      const result = doWork();
+      if (result === undefined) {
+        frameCount++;
+        requestAnimationFrame(workInFrame);
+      } else {
+        console.log('Done in ', frameCount, 'frames');
+        resolve(result);
+      }
+    }
+
+    requestAnimationFrame(workInFrame);
+  });
+}
