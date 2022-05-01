@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Hello. My name is Chip Bell and I'm a software engineer in the DC area.
+I have experience in lot's of random things, like high-scale native cloud development, building HTML5 games, and applied math.
+I'm an experienced jazz pianist, and an intermediate Spanish speaker.
+Perhaps my blog will combine these random things in an interesting way...
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[chipbell4@gmail.com](mailto:chipbell4@gmail.com)
