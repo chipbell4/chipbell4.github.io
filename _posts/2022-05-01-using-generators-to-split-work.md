@@ -64,6 +64,7 @@ function* squares() {
 ```
 
 There are infinite integers, so this "list" is technically infinite too (ignoring integer overflow).
+Callers could call `squares()` to start getting squared integers and stop calling the generator when they've "had enough".
 
 ### "Un-paginating" API Responses
 Some APIs will return results in "pages" in cases where returning _everything_ would be too large of a response.
@@ -127,6 +128,8 @@ Okay, okay, [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_W
 We could send `n` over to a worker and let it respond whenever it wraps up the calculation, mischief managed.
 However, bear in mind that there are limitations!
 For instance, Web Workers can't modify the DOM and as a result, you may be _forced_ to find a way to perform this work on the browser's main UI thread.
+For your example, web workers might be the perfect solution.
+However, keep reading! Generators might provide an alternative solution that may give you finer grained control.
 
 ## Modifying the function to use generators
 Okay, let's make a modification to our `squareSum` function.
@@ -201,7 +204,10 @@ So, we create a function `doWork` which does the following:
 - If we're still not done yet after the loop, it schedules another function run
 - Otherwise, it logs what it did.
 
-Doing the work this way has an interesting side effect: It makes the overall process run _slower_ since there's a lot more coordination that has to happen, but with the benefit of keeping the calculation from consuming the UI thread completely.
+Doing the work this way has an interesting side effect: It makes the overall process run _slower_ since there's a lot more coordination that has to happen:
+- The executing context for the calculation is being stopped and started a bunch as the generator is called over and over
+- There's additional code that's now being called (like `requestAnimationFrame`)
+However, this still has the benefit of keeping the calculation from consuming the UI thread completely.
 
 ## Making it generic
 So, how can we make this more reusable for more than just my contrived `squareSum` function?
@@ -217,7 +223,6 @@ function runGenerator(gen, frameBudget) {
   return new Promise(function(resolve) {
     function doWork() {
       const frameStart = performance.now();
-      const frameBudget = 16; // ms
       const frameEnd = frameStart + frameBudget; // when we want to stop processing
 
       let currentFrame = performance.now();
@@ -240,6 +245,14 @@ function runGenerator(gen, frameBudget) {
   });
 }
 ```
+
+And here's a working example in CodePen:
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="poaveNR" data-user="chipbell4" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/chipbell4/pen/poaveNR">
+  Work Splitting With Generators</a> by Chip Bell (<a href="https://codepen.io/chipbell4">@chipbell4</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Conclusion
 So, to sum up what we did:
