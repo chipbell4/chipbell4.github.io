@@ -2,7 +2,7 @@
 layout: post
 title: "Using Generators To Split Work"
 date: 2022-05-05 16:02:40
-categories:
+categories: javascript generators es6 performance
 ---
 
 <script src="/assets/js/generators-split-work.js"></script>
