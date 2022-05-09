@@ -9,7 +9,46 @@ categories: javascript webaudio
 I've started planning out posts for this blog, and I realize that I'm going to need a nice way to generate sounds programmatically.
 WebAudio, probably my favorite browser API, provides some nice audio synthesis capabilities which we'll use in this post to build a small monophonic synthesizer.
 
-## WebAudio Basics
+## WebAudio Intro
+WebAudio is a browser API that gives you lower-level access to audio in the browser.
+With WebAudio, you can do things like decode an audio file into a buffer, manipulate the buffer, wire it up to various effects, and then pipe it out to the user's speakers.
+Moreover, you also have access to some core audio primitives that allow you to generate your _own_ sound without loading an external file.
+
+[Sound is essentially wiggly air](https://youtu.be/cdasn27lbgY?t=14).
+That is, what we perceive as sound is vibrations in the air.
+In particular, our ears can typically hear vibrations for a range of frequencies, typically 20Hz up to 20KHz, although that top limit lowers as we get older.
+As a result, a very core audio primitive for "creating sound" is an _oscillator_.
+An oscillator produces a repeated vibration in an audible frequency range.
+
+In the WebAudio world, audio components are modeled as "nodes" and can be connected to each other.
+In our case, we'll create an oscillator which will generate a tone.
+We'll feed that into a `GainNode` which will allow us to control the volume of the signal.
+We'll that connect the `GainNode` to the main "destination", which is essentially the user's speakers.
+Our graph will look something like this:
+
+<svg width="300" height="400" viewBox="0 0 300 400">
+    <defs>
+        <marker id="arrow" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
+            <path d="M2,2 L2,11 L10,6 L2,2" style="fill:red;" />
+        </marker>
+    </defs>
+    <style>
+      text {
+        text-align: center;
+        background: blue;
+      }
+    </style>
+
+    <text x="150" y="50">OscillatorNode</text>
+    <text x="150" y="200">GainNode</text>
+    <text x="150" y="350">Destination</text>
+
+    <path d="M30,150 L100,50"
+          style="stroke:red; stroke-width: 1; fill: none;
+                 marker-end: url(#arrow);"
+    />
+</svg>
+
 
 ## Getting Some Sound Playing
 Let's first start by creating some bare-bones audio node configuration to get some sound playing.
@@ -36,6 +75,7 @@ osc.start();
 ```
 
 Core to the process is using an `AudioContext` to create the different audio nodes we need.
+TODO
 
 ## Wrapping into a Class
 We can take this logic and wrap it neatly into a class.
@@ -121,4 +161,12 @@ You can see a full demo of the synth and its UI on codepen:
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 ## Conclusion
+Okay, so we've now got a reusable class for synthesizing audio!
+You can seen in the UI demo that it's pretty straightforward to wire this up to a UI.
+In later posts, I'll build on top of this class to build other useful demos.
+
+However, we currently have a limitation: this class only supports _monophonic_ sounds, i.e it can only play a single sound at once.
+We'll need to modify this class to support polyphony (multiple notes at once), but let's tackle that in a later post.
+See you then!
