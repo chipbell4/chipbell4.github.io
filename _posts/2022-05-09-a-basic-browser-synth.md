@@ -26,10 +26,10 @@ We'll feed that into a `GainNode` which will allow us to control the volume of t
 We'll that connect the `GainNode` to the main "destination", which is essentially the user's speakers.
 Our graph will look something like this:
 
-<svg width="300" height="400" viewBox="0 0 300 400">
+<svg width="300" height="350" viewBox="0 0 300 350">
     <defs>
-        <marker id="arrow" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
-            <path d="M2,2 L2,11 L10,6 L2,2" style="fill:red;" />
+        <marker id="arrow-head" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
+            <path d="M2,2 L2,11 L10,6 L2,2"/>
         </marker>
     </defs>
     <style>
@@ -37,16 +37,32 @@ Our graph will look something like this:
         text-align: center;
         background: blue;
       }
+      rect {
+        fill: #eee;
+        stroke: #333;
+      }
+      path.arrow {
+        stroke: #933;
+        stroke-width: 2;
+        fill: none;
+        marker-end: url(#arrow-head);
+      }
+      #arrow-head path {
+        fill: #933;
+      }
     </style>
 
-    <text x="150" y="50">OscillatorNode</text>
-    <text x="150" y="200">GainNode</text>
-    <text x="150" y="350">Destination</text>
+    <rect x="50" y="50" width="200" height="40" rx="4"/>
+    <text x="50%" y="75" text-anchor="middle">OscillatorNode</text>
+    <path class="arrow" d="M150,95 L150,130" />
 
-    <path d="M30,150 L100,50"
-          style="stroke:red; stroke-width: 1; fill: none;
-                 marker-end: url(#arrow);"
-    />
+    <rect x="50" y="150" width="200" height="40" rx="4"/>
+    <text x="50%" y="175" text-anchor="middle">GainNode</text>
+    <path class="arrow" d="M150,195 L150,230" />
+    
+    <rect x="50" y="250" width="200" height="40" rx="4"/>
+    <text x="50%" y="275" text-anchor="middle">Destination</text>
+
 </svg>
 
 
