@@ -16,9 +16,10 @@ Moreover, you also have access to some core audio primitives that allow you to g
 
 [Sound is essentially wiggly air](https://youtu.be/cdasn27lbgY?t=14).
 That is, what we perceive as sound is vibrations in the air.
-In particular, our ears can typically hear vibrations for a range of frequencies, typically 20Hz up to 20KHz, although that top limit lowers as we get older.
+In particular, our ears can typically hear vibrations for a range of frequencies, typically 20Hz up to 20KHz, although that top limit gets lower as we get older.
 As a result, a very core audio primitive for "creating sound" is an _oscillator_.
 An oscillator produces a repeated vibration in an audible frequency range.
+Most oscillators are configurable in that their frequency and the shape of the waveform they produce can be set.
 
 In the WebAudio world, audio components are modeled as "nodes" and can be connected to each other.
 In our case, we'll create an oscillator which will generate a tone.
@@ -90,8 +91,9 @@ gain.connect(context.destination);
 osc.start();
 ```
 
-Core to the process is using an `AudioContext` to create the different audio nodes we need.
-TODO
+Note that we don't directly instantiate our oscillator and gain nodes.
+Instead, we use an `AudioContext` object as a "factor" to get those objects.
+All WebAudio node types are created this way.
 
 ## Wrapping into a Class
 We can take this logic and wrap it neatly into a class.
@@ -167,7 +169,7 @@ document.querySelector("button.pause").addEventListener("click", () => {
 });
 ```
 
-Since we're doing `querySelectorAll` on the note buttons, we can certainly add more notes if we wanted, but this is enough for now.
+Since we're doing `querySelectorAll` on the note buttons, we could also add more notes if we wanted.
 
 You can see a full demo of the synth and its UI on codepen:
 
@@ -180,7 +182,7 @@ You can see a full demo of the synth and its UI on codepen:
 
 ## Conclusion
 Okay, so we've now got a reusable class for synthesizing audio!
-You can seen in the UI demo that it's pretty straightforward to wire this up to a UI.
+And with a little bit of HTML, it's not much more code to wire it up to a UI.
 In later posts, I'll build on top of this class to build other useful demos.
 
 However, we currently have a limitation: this class only supports _monophonic_ sounds, i.e it can only play a single sound at once.
