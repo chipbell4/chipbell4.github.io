@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const path = require("path");
+
+function failWithUsageMessage() {
+  console.log("Usage:\n  jsify path/to/input.ext output/directory");
+  process.exit(0);
+}
+
+if (process.argv.length < 4) {
+  failWithUsageMessage();
+}
+
+const inputFile = path.resolve(process.argv[2]);
+const outputFile = path.resolve(process.argv[3]);
+
+let errors = [];
+let errorMessage = "";
+
+// confirm that the input file exists and is a file
+const inputStats = fs.statSync(inputFile, {throwIfNoEntry:false});
+if (inputStats === undefined) {
+  errors.push(`Provided file ${process.argv[2]} doesn't exist`);
+} else if (!inputStats.isFile()) {
+  errors.push(`Provided file ${process.argv[2]} is not a file`);
+}
+
+// confirm that the output file exists and is a directory
+const outputStats = fs.statSync(outputFile, {throwIfNoEntry:false});
+if (outputStats === undefined) {
+  errors.push(`Provided output directory ${process.argv[3]} doesn't exist`);
+} else if (!outputFile.isDirectory()) {
+  errors.push(`Provided output directory ${process.argv[3]} is not a directory`);
+}
+
+// if we encountered any errors, log them then bail out
+if (errors.length > 0) {
+  console.warn("Error:")
+  errors.forEach((message) => console.warn("  " + message));
+  failWithUsageMessage();
+}
+
+console.log("Everything is valid: ", inputFile, outputFile);
