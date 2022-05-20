@@ -52,5 +52,9 @@ const newFileName = path.basename(inputFile) + ".js";
 const newFullPath = path.join(outputDirectory, newFileName);
 
 const contents = fs.readFileSync(inputFile, { encoding: "utf8" });
-const outputContents = `export const contents = ${JSON.stringify(contents)};`;
+const outputContents = `
+  export const contents = ${JSON.stringify(contents)};
+  export const buildTime = new Date(${Date.now()});
+  export const originalPath = "${inputFile}";
+`;
 fs.writeFileSync(newFullPath, outputContents);
