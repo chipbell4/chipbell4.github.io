@@ -2,20 +2,26 @@
 const fs = require("fs");
 const path = require("path");
 
+/**
+ * A helper function to log and exit when a failure occurs
+ */
 function failWithUsageMessage() {
   console.log("Usage:\n  jsify path/to/input.ext output/directory");
   process.exit(0);
 }
 
+// Verify that the user provided the right number of args
 if (process.argv.length < 4) {
   failWithUsageMessage();
 }
 
+// Get the absolute path to the inputs provided
 const inputFile = path.resolve(process.argv[2]);
-const outputFile = path.resolve(process.argv[3]);
+const outputDirectory = path.resolve(process.argv[3]);
 
+// This array contains a list of any validation errors we found when attempting
+// check that the input file and output directory exist
 let errors = [];
-let errorMessage = "";
 
 // confirm that the input file exists and is a file
 const inputStats = fs.statSync(inputFile, {throwIfNoEntry:false});
@@ -26,10 +32,10 @@ if (inputStats === undefined) {
 }
 
 // confirm that the output file exists and is a directory
-const outputStats = fs.statSync(outputFile, {throwIfNoEntry:false});
+const outputStats = fs.statSync(outputDirectory, {throwIfNoEntry:false});
 if (outputStats === undefined) {
   errors.push(`Provided output directory ${process.argv[3]} doesn't exist`);
-} else if (!outputFile.isDirectory()) {
+} else if (!outputStats.isDirectory()) {
   errors.push(`Provided output directory ${process.argv[3]} is not a directory`);
 }
 
@@ -40,4 +46,9 @@ if (errors.length > 0) {
   failWithUsageMessage();
 }
 
-console.log("Everything is valid: ", inputFile, outputFile);
+const newFileName = path.basename(inputFile) + ".js";
+const newFullPath = path.join(outputDirectory, newFileName);
+
+const contents = fs.readFileSync(inputFile, {encoding:"utf8"});
+const outputContents = `export const contents = "${contents}"`;
+fs.writeFileSync(newFullPath, outputContents);
