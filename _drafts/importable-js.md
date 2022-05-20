@@ -45,7 +45,7 @@ const inputFile = path.resolve(process.argv[2]);
 const outputDirectory = path.resolve(process.argv[3]);
 
 // This array contains a list of any validation errors we found when attempting
-// check that the input file and output directory exist
+// to check that the input file and output directory exist
 let errors = [];
 
 // confirm that the input file exists and is a file
@@ -148,7 +148,7 @@ const inputFile = path.resolve(process.argv[2]);
 const outputDirectory = path.resolve(process.argv[3]);
 
 // This array contains a list of any validation errors we found when attempting
-// check that the input file and output directory exist
+// to check that the input file and output directory exist
 let errors = [];
 
 // confirm that the input file exists and is a file
@@ -192,6 +192,7 @@ const outputContents = `
 fs.writeFileSync(newFullPath, outputContents);
 ```
 
+Nice!
 This little helper script now takes any file you give it, and makes the files contents importable into JavaScript.
 This can be helpful as a build step for converting static assets like templates, stylesheets, and shaders to be loaded at runtime with `import` statements rather than `fetch`.
 Enjoy!
