@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Importing Files as Strings"
-date: 2022-05-01 15:23:59
-categories: javascript
+date: 2022-05-20 08:15:00
+categories: javascript tools
 ---
 
 ## Overview
