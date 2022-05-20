@@ -24,7 +24,7 @@ const outputDirectory = path.resolve(process.argv[3]);
 let errors = [];
 
 // confirm that the input file exists and is a file
-const inputStats = fs.statSync(inputFile, {throwIfNoEntry:false});
+const inputStats = fs.statSync(inputFile, { throwIfNoEntry: false });
 if (inputStats === undefined) {
   errors.push(`Provided file ${process.argv[2]} doesn't exist`);
 } else if (!inputStats.isFile()) {
@@ -32,16 +32,18 @@ if (inputStats === undefined) {
 }
 
 // confirm that the output file exists and is a directory
-const outputStats = fs.statSync(outputDirectory, {throwIfNoEntry:false});
+const outputStats = fs.statSync(outputDirectory, { throwIfNoEntry: false });
 if (outputStats === undefined) {
   errors.push(`Provided output directory ${process.argv[3]} doesn't exist`);
 } else if (!outputStats.isDirectory()) {
-  errors.push(`Provided output directory ${process.argv[3]} is not a directory`);
+  errors.push(
+    `Provided output directory ${process.argv[3]} is not a directory`
+  );
 }
 
 // if we encountered any errors, log them then bail out
 if (errors.length > 0) {
-  console.warn("Error:")
+  console.warn("Error:");
   errors.forEach((message) => console.warn("  " + message));
   failWithUsageMessage();
 }
@@ -49,6 +51,6 @@ if (errors.length > 0) {
 const newFileName = path.basename(inputFile) + ".js";
 const newFullPath = path.join(outputDirectory, newFileName);
 
-const contents = fs.readFileSync(inputFile, {encoding:"utf8"});
-const outputContents = `export const contents = "${contents}"`;
+const contents = fs.readFileSync(inputFile, { encoding: "utf8" });
+const outputContents = `export const contents = ${JSON.stringify(contents)};`;
 fs.writeFileSync(newFullPath, outputContents);
