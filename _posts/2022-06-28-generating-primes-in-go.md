@@ -17,8 +17,8 @@ So, numbers like 5, 13, and 17 are prime, whereas 6, 14, and 16 are not and are 
 
 Given a number `n` and `m`, we can check if `n` is divisible by `m` by checking the _modulus_, written `n mod m`.
 The modulus gives us the remainder after division. So, `5 mod 2 == 1`, and `16 mod 4 == 0`.
-If the modulus is 0, that means that `m` divides evenly in `n`, meaning `n` is a multiple of `m`.
-Go, and most programming languages, provide an operator for this: the `%` operator.
+If the modulus is 0, that means that `m` divides evenly into `n`, meaning `n` is a multiple of `m`.
+Go, and most programming languages, provide some sort of operator for this. In Go, it's the `%` operator.
 
 Given a number `n`, an easy way to check for primality is to start from 2, and go up to `n-1`, checking that the modulus is _non-zero_ for every number up to `n`.
 As a recap, if `n mod m ≠ 0`, `m` doesn't divide evenly into `n`.
@@ -29,7 +29,7 @@ There is an interesting theorem in mathematics (so interesting that it's ["funda
 that states that any number can be written as a product of prime numbers.
 
 As a result, if a number `n` is prime, writing it as a product of primes doesn't change anything; it'd be written as just the single number.
-If a number is composite however, `n` would be written as a product of more than one number.
+If a number is composite however, `n` would be written as a product of more than one (prime) number.
 
 We can invert this approach: If we loop over all prime numbers `p` up to `n` and check for divisibility, if we ever see a case where `n mod p == 0` we know that `n` is not prime.
 Moreover, if we look at _every_ prime `p` and never see `n mod p == 0`, that means that `n` must be prime, because there's no other prime numbers in it's prime factorization, only `n`.
@@ -116,7 +116,7 @@ Let's analyze this:
 - The first column is the largest `N` that the benchmark got to before it was able to get accurate timing information. A slower function will have a lower number here.
 - The second column tells you the average time it takes for the function to run
 - The third column is how many bytes are allocated per operation. Given we're doing 1000 primes in our benchmark, we should expect 4000 bytes for 1000 32-bit integers. Where does that other memory allocation come from...
-- The last column is how many allocations happen on average per call. We're finding 1000 primes, but interestingly, we don't allocate 1000 times! This is because the built-in `append` function _doubles the underlying array length_ when the capacity is exceeded. The go blog has [an excellent article on the implementation](https://go.dev/blog/slices-intro).
+- The last column is how many allocations happen on average per call. We're finding 1000 primes, but interestingly, we don't allocate 1000 times! This is because the built-in `append` function _doubles the underlying array length_ when the capacity is exceeded. As a result, we see `log2(1000)` allocations which is about 10. The go blog has [an excellent article on the implementation](https://go.dev/blog/slices-intro).
 
 So, how can we improve our performance?
 
