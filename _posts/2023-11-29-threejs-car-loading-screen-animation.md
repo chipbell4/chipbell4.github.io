@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "THREEJS Car Loading Screen Animation"
+title: "three.js RAV4 Loading Screen Animation"
 date: 2023-11-29 08:39:36
 categories: javascript threejs
 ---
@@ -9,7 +9,9 @@ categories: javascript threejs
 Well, I'm back I guess?
 
 I recently decided to implement the startup screen animation from my Toyota RAV4 using three.js.
-Here's what it (the startup screen) looks like: ![Rav 4 startup screen](/assets/rav4/rav4.gif)
+Here's what it (the startup screen) looks like:
+
+![Rav 4 startup screen](/assets/rav4/rav4.gif)
 
 Ignoring the RAV4 logo, the animation is mostly a bunch of wireframe triangles zooming into the camera.
 I figured it'd be a good opportunity to brush up on three.js without being overly ambitious.
