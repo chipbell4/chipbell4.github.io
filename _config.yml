@@ -40,6 +40,10 @@ google_analytics: G-KZV3GZMYJV
 
 permalink: /:year/:month/:day/:title/
 
+# https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/
+kramdown:
+  math_engine: katex
+
 # Includes an icon in the footer for each username you enter
 footer-links:
   email:
