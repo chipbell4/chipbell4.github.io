@@ -87,7 +87,7 @@ The class creates a set of oscillators and feeds them all into a single gain whi
 One way to make the voice sound richer and fuller is to slightly detune each oscillator from each other.
 This causes each oscillator's wave form to not line up perfectly with each other, causing [contructive and destructive interference](https://en.wikipedia.org/wiki/Beat_(acoustics)).
 
-If we have $n$ oscillators, and want to spread their tuning over $d$ half-steps around the frequency $f$, we have the following:
+If we have $n$ oscillators, and want to spread their tuning over $d$ half-steps (our "detune" parameter) around some target frequency $f$, we have the following:
 
 The $k$-th oscillator is tuned the following number of half-steps away from f:
 
