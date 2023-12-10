@@ -96,6 +96,7 @@ h = 2d\left(\frac{k}{n} - \frac{1}{2}\right)
 $$
 
 If a half-step has the tuning ratio of $\sqrt[12]{2}$ that means that $k$-th oscillators frequency will be:
+
 $$
 f_k = f \left(\sqrt[12]{2}\right)^h = 2^{\frac{h}{12}} f
 $$
