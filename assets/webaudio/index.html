@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <h1>Web Audio Demo</h1>
+        <button id="demo-button">Start Demo</button>
+        <div id="demo-container" class="hidden">
+            <ol>
+                <li>Play an audio file <button class="demo" id="basic">Play</button></li>
+                <li>Low-pass filter (BiquadFilterNode) <button class="demo" id="lowpass">Play</button></li>
+                <li>Reverb (ConvolverNode) <button class="demo" id="reverb">Play</button></li>
+                <li>Distortion (WaveShaperNode) <button class="demo" id="distortion">Play</button></li>
+                <li>Delay (DelayNode) <button class="demo" id="delay">Play</button></li>
+                <li>Oscillators (Oscillators) <button class="demo" id="oscillators">Play</button></li>
+            </ol>
+        </div>
+        <script src="audio.js"></script>
+        <script src="ux.js"></script>
+    </body>
+</html>

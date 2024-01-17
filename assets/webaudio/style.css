@@ -1,0 +1,11 @@
+body {
+    font-family: Arial;
+    line-height: 1.5em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
