@@ -7,3 +7,15 @@ button.addEventListener("click", async () => {
 
     await setupAudio();
 });
+
+
+// setup demo buttons
+for (let button of document.querySelectorAll(".demo")) {
+    button.addEventListener("click", async () => {
+        await resetConnections();
+
+        const id = button.id;
+        console.log(`Playing demo ${id}`)
+        await demos[id]();
+    });
+}
