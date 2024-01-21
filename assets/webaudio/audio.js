@@ -77,7 +77,12 @@ const demos = {
         distortion.connect(context.destination);
     },
     oscillators: async () => {
-        oscillator.connect(gain);
+        // Some extra gain because oscillators are so loud
+        let gain2 = new GainNode(context, {
+            gain: 0.05,
+        });
+        oscillator.connect(gain2);
+        gain2.connect(gain);
         gain.connect(context.destination);
     },
 }
