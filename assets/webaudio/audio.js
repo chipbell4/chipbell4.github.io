@@ -76,15 +76,6 @@ const demos = {
         bufferSource.connect(distortion);
         distortion.connect(context.destination);
     },
-    delay: async () => {
-        const delay = new DelayNode(context, {
-            delayTime: 0.5,
-            maxDelayTime: 2.0,
-        });
-
-        bufferSource.connect(delay);
-        delay.connect(context.destination);
-    },
     oscillators: async () => {
         oscillator.connect(gain);
         gain.connect(context.destination);

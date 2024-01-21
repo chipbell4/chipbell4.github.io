@@ -168,19 +168,6 @@ bufferSource.connect(distortion);
 distortion.connect(context.destination);
 ```
 
-### [DelayNode](https://developer.mozilla.org/en-US/docs/Web/API/DelayNode)
-The `DelayNode` can add an echo effect to a signal. Here's how you'd use it:
-
-```javascript
-const delay = new DelayNode(context, {
-    delayTime: 0.5,
-    maxDelayTime: 2.0,
-});
-
-bufferSource.connect(delay);
-delay.connect(context.destination);
-```
-
 ## Getting Lower-Level: Oscillators
 WebAudio also gives us the ability to synthesize audio ourselves.
 The most simplistic way to do this is to use an `OscillatorNode`.
