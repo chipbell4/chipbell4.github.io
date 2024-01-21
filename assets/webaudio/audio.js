@@ -60,13 +60,13 @@ const demos = {
         reverb.connect(context.destination);
     },
     distortion: async () => {
-        const SAMPLES = 44100;
+        const SAMPLES = 2048;
         const curve = new Float32Array(SAMPLES);
-        const max_volume = 0.5;
-        const distortion_amount = 2.0
+        const max_volume = 0.2;
+        const distortion_amount = 5.0;
         for (let i = 0; i < SAMPLES; i++) {
-            const x = (i * 2) / (SAMPLES - 1);
-            curve[i] = max_volume * Math.sign(x) * distortion_amount * Math.pow(Math.abs(x), distortion_amount)
+            const x = (i * 2 / SAMPLES) - 1;
+            curve[i] = max_volume * Math.sign(x) * Math.pow(Math.abs(x), 1 / distortion_amount)
         }
 
         const distortion = new WaveShaperNode(context);
