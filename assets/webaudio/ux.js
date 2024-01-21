@@ -19,3 +19,7 @@ for (let button of document.querySelectorAll(".demo")) {
         await demos[id]();
     });
 }
+
+document.querySelector("#stop").addEventListener("click", async () => {
+    await resetConnections();
+});
