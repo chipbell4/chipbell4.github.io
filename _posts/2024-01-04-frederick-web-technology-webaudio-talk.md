@@ -24,11 +24,21 @@ It supports lots of different workflows and features, such as:
 - Synthesizing audio with some basic oscillators
 
 ## Stepping Back: How Does Digital Audio Even Work?
-### Speakers
-![a picture of a stereo speaker](LINK HERE)
+### What is Sound?
+- Sound is basically "wiggly air"
+- Something moving in air fast enough causes the air to compress and expand which our ear drums detect by sympathetic vibration
+- Our auditory nerve converts this to an electral signal which our brain perceives as sound.
 
-### Bitstreams, PCM, Bit Depth, Sample rate
-![a picture of a sound wave connected to a speaker](LINK HERE)
+### Speakers
+![a picture of a stereo speaker. Source https://www.instructables.com/How-Speakers-Work-and-an-Intro-to-Building-a-Subwo/](/assets/webaudio/speaker.jpeg)
+
+The overly simplified version:
+- Speakers work backwards than our ears
+- A voltage is applied across an electromagnet
+- Changes in the voltage cause the magnet to move a "cone" forward and backwards, causing air to be compressed and expanded.
+- Our ears pick up the compressed and expanded air as sound.
+
+### How Computers Play Sound: Bitstreams, PCM, Bit Depth, Sample rate
 To play a sound, the computer reads a _bitstream_, basically a stream of integers, and converts that to an output voltage to the speakers.
 Assuming it's a signed integer, a negative number corresponds to a negative voltage, and a positive number corresponds to a postive voltage.
 As the computer loops over the numbers, the speaker moves back and forth generating sound.
@@ -41,7 +51,7 @@ Some napkin math would quickly reveal that raw 16-bit PCM data at 44.1 KHz takes
 So, engineers have come up with compression algorithms to improve that performance.
 Some are lossy like MP3, and some are lossless like FLAC.
 
-In order to play these types of files they'd need to be decoded to PCM first. Many decoders can do this on-the-fly!
+In order to play these types of files they'd need to be decoded to PCM first. Many decoders can do this on-the-fly (like the `<audio/>` tag)!
 
 ## How Does WebAudio Approach Sound In General?
 - All WebAudio access occurs through an `AudioContext` object.
@@ -64,7 +74,8 @@ For instance, you could connect an `OscillatorNode` a `gain` parameter which wou
 const context = new AudioContext();
 
 // load and decode
-const buffer = await fetch("never_gonna_give_u_up.mp3");
+const response = await fetch("never_gonna_give_u_up.mp3");
+const buffer = await response.arrayBuffer();
 const pcmData = await context.decodeAudioData(buffer);
 
 // create a node for playing the buffer and connect to the speakers/destination
