@@ -9,6 +9,8 @@ categories: javascript webaudio
 This post contains my notes for my upcoming (at the time of writing) talk for the Frederick Web Technology meetup!
 The goal of this post (and the talk) is give a brief overview of what WebAudio is, what it can do, and how to use it. What you may be reading might not be done! Caveat Emptor!
 
+Also, here's a link to the [demo page](/assets/webaudio/index.html).
+
 ## What is WebAudio
 WebAudio is:
 - A built-in API in the browser
@@ -214,8 +216,3 @@ However, [here's an example](https://github.com/chipbell4/nes-sequencer/blob/mas
 I suspect I won't have time to cover this so I'm going to provide [a link instead](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_AudioWorklet) and provide a brief overview.
 
 An `AudioWorklet` allows you to have full programmatic control over how a signal is manipulated at a "per-block" (read per chunk of audio samples) level. They run on a separate thread for performance purposes and are intended to replace the old `ScriptProcessorNode` which has been deprecated.
-
-## Chip's TODO
-I still have some more things to do on this before I'm done, so I'm writing them down here so I can commit this while I still work stuff (and don't lose all my work!). I need to:
-- Build the sample page
-- Add links from this page to each individual sample
