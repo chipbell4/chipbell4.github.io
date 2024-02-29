@@ -4,11 +4,10 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-### Iceberg
-<iframe
-  id="sc-widget"
-  src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/users/chip-bell/sets/iceberg"
-  width="100%" height="465" scrolling="no" frameborder="no"></iframe>
+
+### Discography
+- [Iceberg](https://soundcloud.com/chip-bell/sets/iceberg?si=6481732d14404e3495d1da8a19b28fd0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing), a synth jazz album.
+- [Roswell](https://soundcloud.com/chip-bell/sets/roswell?si=fdb94ecc26f74cc08ac43f6a01420708&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing), an EP of chiptunes.
 
 
 ### Roswell
