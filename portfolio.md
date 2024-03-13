@@ -6,8 +6,8 @@ permalink: /portfolio/
 
 
 ### Discography
-- [Iceberg](https://soundcloud.com/chip-bell/sets/iceberg?si=6481732d14404e3495d1da8a19b28fd0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing), a synth jazz album.
-- [Roswell](https://soundcloud.com/chip-bell/sets/roswell?si=fdb94ecc26f74cc08ac43f6a01420708&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing), an EP of chiptunes.
+<iframe style="border: 0; width: 400px; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=3890070958/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/iceberg">Iceberg by Chip Bell</a></iframe>
+<iframe style="border: 0; width: 400px; height: 307px;" src="https://bandcamp.com/EmbeddedPlayer/album=3629815185/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/roswell">Roswell by Chip Bell</a></iframe>
 
 
 ### Roswell
