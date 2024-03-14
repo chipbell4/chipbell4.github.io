@@ -12,7 +12,7 @@ case $1 in
         echo "Running build"
         ;;
     serve)
-        docker run --rm --volume="$volume" --publish [::1]:4000:4000 $image jekyll serve
+        docker run --rm --volume="$volume" --publish target=4000,published=127.0.0.1:4000,protocol=tcp $image jekyll serve
         ;;
     update)
         docker run --rm --volume="$volume" -it $image bundle update
