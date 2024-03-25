@@ -6,9 +6,16 @@ permalink: /portfolio/
 
 
 ### Discography
-<iframe style="border: 0; width: 400px; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=3890070958/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/iceberg">Iceberg by Chip Bell</a></iframe>
-<iframe style="border: 0; width: 400px; height: 307px;" src="https://bandcamp.com/EmbeddedPlayer/album=3629815185/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/roswell">Roswell by Chip Bell</a></iframe>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <iframe style="border: 0; width: 100%; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=3890070958/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/iceberg">Iceberg by Chip Bell</a></iframe>
+        </div>
+        <div class="col-md-6">
+            <iframe style="border: 0; width: 100%; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=3629815185/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/roswell">Roswell by Chip Bell</a></iframe>
+        </div>
+    </div>
+</div>
 
 ### Roswell
 Roswell is a GameBoy-themed HTML5 game built in pure JavaScript.
