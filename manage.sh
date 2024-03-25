@@ -2,14 +2,16 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-JEKYLL_VERSION=latest
-image="jekyll/jekyll:$JEKYLL_VERSION"
+image="site"
 
 volume="$PWD:/srv/jekyll:Z"
 
 case $1 in
+    image)
+        docker build . -t $image
+        ;;
     build)
-        echo "Running build"
+        docker run --rm --volume="$volume" $image jekyll build --trace
         ;;
     serve)
         docker run --rm --volume="$volume" --publish target=4000,published=127.0.0.1:4000,protocol=tcp $image jekyll serve
@@ -18,6 +20,6 @@ case $1 in
         docker run --rm --volume="$volume" -it $image bundle update
         ;;
     *)
-        echo "Must be one of 'build, serve'"
+        echo "Must be one of 'image, build, serve, update'"
         ;;
 esac
