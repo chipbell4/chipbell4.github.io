@@ -100,3 +100,9 @@ pre.highlight {
 .discography p {
     height: 5em;
 }
+
+.portfolio .portfolio-item img {
+    float: left;
+    width: 50%;
+    margin-right: 2em;
+}

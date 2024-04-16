@@ -4,32 +4,20 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
+<h1>Portfolio</h1>
 
-### Discography
-<div class="container">
+<div class="container portfolio">
     <div class="row">
-        <div class="col-md-6">
-            <iframe style="border: 0; width: 100%; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=3890070958/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/iceberg">Iceberg by Chip Bell</a></iframe>
-        </div>
-        <div class="col-md-6">
-            <iframe style="border: 0; width: 100%; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=3629815185/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" seamless><a href="https://chipbell.bandcamp.com/album/roswell">Roswell by Chip Bell</a></iframe>
-        </div>
+{% for item in site.data.projects %}
+    <div class="col-md-6 portfolio-item">
+        <h2>{{ item.title }}</h2>
+        <p>
+            <a href="{{ item.link }}" target="_blank">
+                <img alt="{{ item.alt }}" src="{{ site.baseurl }}{{ item.img }}" />
+            </a>
+            {{ item.description }}
+        </p>
+    </div>
+{% endfor %}
     </div>
 </div>
-
-### Roswell
-Roswell is a GameBoy-themed HTML5 game built in pure JavaScript.
-All images are rendered bitmaps embedded in the code, and all audio and music is synthesized on the fly.
-The entire game takes up on 33KB in a single JavaScript file.
-
-[![Roswell Logo]({{site.baseurl}}/assets/images/roswell_logo.png)](https://sandcat1907.itch.io/roswell)
-
-### Mondrian Chord Visualizer
-This experiment visualizes microtonal chords using a Piet Mondrian-style generated image.
-
-[![Mondrian Chord Visualizer example]({{site.baseurl}}/assets/images/mondrian.gif)]({{site.baseurl}}/assets/mondrian/index.html)
-
-### Etsy Store
-I've recently opened an Etsy Store selling digital prints of algorithmic art I've made.
-
-[![Etsy Shop Logo]({{site.baseurl}}/assets/images/etsy_logo.png)](https://www.etsy.com/shop/CeridwenCrafting)
