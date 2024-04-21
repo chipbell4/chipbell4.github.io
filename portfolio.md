@@ -4,8 +4,6 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-<h1>Portfolio</h1>
-
 <div class="container portfolio">
     <div class="row">
 {% for item in site.data.projects %}
