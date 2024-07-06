@@ -44,6 +44,10 @@ permalink: /:year/:month/:day/:title/
 kramdown:
   math_engine: katex
 
+# https://github.com/jasonbellamy/jekyll-mermaid?tab=readme-ov-file#config
+mermaid:
+  src: '/assets/js/mermaid.min.js'
+
 # Includes an icon in the footer for each username you enter
 footer-links:
   email:
@@ -58,3 +62,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-mermaid
