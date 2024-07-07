@@ -9,7 +9,7 @@ categories: devops
 CI/CD is a set of practices used by engineering organizations to improve the quality of software they deliver, how fast they deliver that software, and detect issues with that software before they affect end users.
 Unfortunately, the term can mean a lot of different ideas and approaches.
 So, in this talk we're going to try to unravel some of those ideas to give you some ideas on how you too can deliver software better.
-I'll also give you some links to some tooling so you can see how it's done.
+I'll also give you some links to some tooling so you can start implementing CI/CD in your own projects.
 
 ## What Does CI/CD Even Mean?
 CI/CD typically stands for "Continuous Integration/Continuous Delivery" or "Continuous Integration/Continuous Deployment".
