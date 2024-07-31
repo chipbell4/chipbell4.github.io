@@ -3,6 +3,7 @@ layout: default
 ---
 <div class="intro">
   <p>
+  <img class="me" src="/assets/images/me.jpg" alt="A picture of me playing trombone. Image courtesy of Maria Peña" />
   Hi! My name is Chip and I’m a developer and multi-instrumentalist in the Frederick MD area with a background in game development, music, and applied math.
   I’ve built everything from arcade games to ETL pipelines to accounting software to simulations, and even ETL pipelines for arcade games...
   I’m currently a freelance developer/composer/artist/everything else for Minerva Digital, my wife’s and my creative agency.
@@ -25,8 +26,8 @@ layout: default
   <p>
   My email is <a href="mailto:hello@minervadigital.net">hello@minervadigital.net</a>. Say hi!
   </p>
-
 </div>
+<div class="clear"></div>
 <div class="archive">
   {% for post in site.posts %} {% assign currDate = post.date | date: "%Y" %} {%
   if currDate != date %}
