@@ -2,7 +2,7 @@
 layout: post
 title: "Frederick Web Technology WebAudio Talk"
 date: 2024-01-04 11:43:22
-categories: javascript webaudio
+categories: javascript webaudio talks
 ---
 
 ## Introduction

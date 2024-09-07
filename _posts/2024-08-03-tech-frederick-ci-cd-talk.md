@@ -2,7 +2,7 @@
 layout: post
 title: "An Opinionated Introduction to CI/CD"
 date: 2024-07-03 19:00:00
-categories: devops
+categories: devops talks
 ---
 
 ## Abstract
