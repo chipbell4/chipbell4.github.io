@@ -52,6 +52,40 @@ td, th {
   background-color: #00c9c9;
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const SHARED_CONFIG = {
+    type: 'scatter',
+    // Missing data: [...]
+    options: {
+      elements: {
+        point: {
+          radius: 5,
+        },
+        line: {
+          borderWidth: 5,
+        },
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Position",
+          },
+          type: 'linear',
+          position: 'bottom'
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Partial",
+          },
+        }
+      }
+    }
+  };
+
+</script>
 
 ## Introduction
 As of about a year ago, I've picked up playing trombone again.
@@ -305,3 +339,63 @@ Here's the table of options available to you:
     <td class="e">E1</td>
   </tr>
 </table>
+
+Some things to note:
+- Sorry about the colors! I have synethesia and these are the colors I see for those pitches...
+- A few pitches are missing from the chart! Eb2 down to B1 aren't there, and that's no mistake.
+  Because of the way the trombone works, there's a gap in it's range there.
+  The slide just isn't long enough.
+  However, you'll see many trombones (most professional symphonic models) also have an "F attachment".
+  This is essentially a valve that lowers the fundamental frequency of the trombone down to F1 which will make those missing pitches available.
+  Also note that many trombonists can use their embouchure to reach those notes without the help of an attachment.
+  These are called "false tones" and are typically inferior in tone quality.
+
+### Routing Passages
+The slide while providing the ability to adjust intonation at will also requires greater physical movement than a valve.
+This can really present a problem with fast passages.
+Pitch sequences that require a lot of travel between notes become cumbersome.
+For example, a passage that rapidly alternates between F3 and C3 results in movement between 1st and 6th position, which is awkward.
+Composers should avoid (but don't always) that sort of movement.
+
+Alternate positions can potentially help considerably.
+For that above example, playing the F3 in 6th position would make the passage far easier,requiring slide movement only for small tuning adjustments.
+In the higher range, more options become available.
+
+This is something I've reflected on recently: how can I better understand and internalize those options for me as a trombonist?
+I propose the following graph, where the x-axis is the position, and the y-axis is the partial.
+From there, we can graph a line plotting the course of the slide while playing a passage.
+Consider the following example for playing the Bb major scale from Bb3 to Bb4:
+<canvas id="bb-major-normal"></canvas>
+<script>
+const positions = [
+    {x: 1, y: 4},
+    {x: 2.8631371386483475, y: 5},
+    {x: 0.863137138648348, y: 5},
+    {x: 3.0195500086538747, y: 6},
+    {x: 1.019550008653874, y: 6},
+    {x: 1.6882590646912492, y: 7},
+    {x: 1.9999999999999947, y: 8},
+    {x: 1, y: 8},
+];
+
+let canvas = document.getElementById("bb-major-normal")
+new Chart(canvas, {
+  ...SHARED_CONFIG,
+  data: {
+    datasets: [{
+      label: "Bb Major Scale",
+      data: positions,
+      showLine: true,
+      backgroundColor: "red",
+      tooltip: {
+        callbacks: {
+          label: (ttItem) => {
+            const labels = ["Bb3", "C4", "D4", "Eb4", "F4", "G4", "A4", "Bb4"];
+            return labels[ttItem.dataIndex];
+          }
+        }
+      }
+    }]
+  }
+});
+</script>
