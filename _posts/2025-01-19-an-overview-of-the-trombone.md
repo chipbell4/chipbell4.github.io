@@ -10,6 +10,10 @@ table {
   width: 100%;
 }
 
+td, th {
+  padding: 0.25em;
+}
+
 .c {
    background-color: #9399ff;
 }
