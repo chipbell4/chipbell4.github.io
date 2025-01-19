@@ -399,3 +399,49 @@ new Chart(canvas, {
   }
 });
 </script>
+
+This is mostly how I and other people I've seen play this scale.
+I used a script to generate this, and it's worth pointing out a few things:
+- D4 is in _past 1st position_, because it's a little flat. The script was trying to fix that for me.
+- The sixth partial notes, F4 and Eb4 are "out" a little.
+- However, C4 is further in (even though it's also in 3rd position like Eb4).
+- The G is practically _in-between_ positions.
+
+Now, let's look at a different path one could take
+<canvas id="bb-major-different"></canvas>
+<script>
+const newPositions = [{x: 1, y: 4}, {x: 2.8631371386483475, y: 5}, {x: 4.019550008653872, y: 6}, {x: 5.688259064691246, y: 7}, {x: 5.999999999999993, y: 8}, {x: 3.999999999999996, y: 8}, {x: 1.9999999999999947, y: 8}, {x: 1, y: 8}]
+let newCanvas = document.getElementById("bb-major-different")
+new Chart(newCanvas, {
+  ...SHARED_CONFIG,
+  data: {
+    datasets: [{
+      label: "Bb Major Scale",
+      data: newPositions,
+      showLine: true,
+      backgroundColor: "red",
+      tooltip: {
+        callbacks: {
+          label: (ttItem) => {
+            const labels = ["Bb3", "C4", "D4", "Eb4", "F4", "G4", "A4", "Bb4"];
+            return labels[ttItem.dataIndex];
+          }
+        }
+      }
+    }]
+  }
+});
+</script>
+
+This certainly looks different...
+- There's no zig-zags: the slide moves in one direction for a while and then back. This arguably would let you play faster
+- I've never played this scale like this. Ever. It seems like a good idea, but why haven't I?
+
+This has got me thinking about why that first way may _actually be better in practice_, and here's a few thoughts I have:
+- People learn the first pattern earlier so the muscle memory is more "solidified".
+  It's easier to play that pattern because you don't have to think as hard about it
+- Tuning is easier in closer positions, like 2nd and 3rd.
+  This is probably due to how your arm works.
+  As a result, that second pattern ends up being harder to tune with lots of far-out positions
+- The 7th partial is a little more difficult to tune. So, when one _does_ play on that partial they stick to notes they play a lot on that partial.
+  So, that G4 in 2nd is more likely to be in tune while playing than the Eb4 in 6th because we rarely play Eb4 in 6th.
