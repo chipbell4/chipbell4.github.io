@@ -5,6 +5,50 @@ date: 2025-01-19 00:20:19
 categories: music math
 ---
 
+<style>
+table {
+  width: 100%;
+}
+
+.c {
+   background-color: #9399ff;
+}
+.db {
+    background-color: #af079c;
+}
+.d {
+    background-color: #00dd58;
+}
+.eb {
+    background-color: #00addd;
+}
+.e {
+    background-color: #7fff16;
+    color: #222;
+}
+.f {
+    background-color: #aa1d1d;
+}
+.gb {
+    background-color: #63372e;
+}
+.g {
+    background-color: #0ecc69;
+}
+.ab {
+    background-color: #990465;
+}
+.a {
+    background-color: #c90000;
+}
+.bb {
+    background-color: #c900bf; 
+}
+.b {
+  background-color: #00c9c9;
+}
+</style>
+
 ## Introduction
 As of about a year ago, I've picked up playing trombone again.
 It's been an interesting ride: when I played back in high school I was only mildly interested in it, but after picking it up again I've really become fascinated by it.
@@ -166,6 +210,94 @@ Here's the table of options available to you:
 <table>
   <thead>
     <tr>
+      <th></th>
+      <th>1st</th>
+      <th>2nd</th>
+      <th>3rd</th>
+      <th>4th</th>
+      <th>5th</th>
+      <th>6th</th>
+      <th>7th</th>
     </tr>
   </thead>
+  <tr>
+    <th>8</th>
+    <td class="bb">Bb4</td>
+    <td class="a">A4</td>
+    <td class="ab">Ab4</td>
+    <td class="g">G4</td>
+    <td class="gb">Gb4</td>
+    <td class="f">F4</td>
+    <td class="e">E4</td>
+  </tr>
+  <tr>
+    <th>7</th>
+    <td class="ab">Ab4</td>
+    <td class="g">G4</td>
+    <td class="gb">Gb4</td>
+    <td class="f">F4</td>
+    <td class="e">E4</td>
+    <td class="eb">Eb4</td>
+    <td class="d">D4</td>
+  </tr>
+  <tr>
+    <th>6</th>
+    <td class="f">F4</td>
+    <td class="e">E4</td>
+    <td class="eb">Eb4</td>
+    <td class="d">D4</td>
+    <td class="db">Db4</td>
+    <td class="c">C4</td>
+    <td class="b">B3</td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td class="d">D4</td>
+    <td class="db">Db4</td>
+    <td class="c">C4</td>
+    <td class="b">B3</td>
+    <td class="bb">Bb3</td>
+    <td class="a">A3</td>
+    <td class="ab">Ab3</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td class="bb">Bb3</td>
+    <td class="a">A3</td>
+    <td class="ab">Ab3</td>
+    <td class="g">G3</td>
+    <td class="gb">Gb3</td>
+    <td class="f">F3</td>
+    <td class="e">E3</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td class="f">F3</td>
+    <td class="e">E3</td>
+    <td class="eb">Eb3</td>
+    <td class="d">D3</td>
+    <td class="db">Db3</td>
+    <td class="c">C3</td>
+    <td class="b">B2</td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td class="bb">Bb2</td>
+    <td class="a">A2</td>
+    <td class="ab">Ab2</td>
+    <td class="g">G2</td>
+    <td class="gb">Gb2</td>
+    <td class="f">F2</td>
+    <td class="e">E2</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td class="bb">Bb1</td>
+    <td class="a">A1</td>
+    <td class="ab">Ab1</td>
+    <td class="g">G1</td>
+    <td class="gb">Gb1</td>
+    <td class="f">F1</td>
+    <td class="e">E1</td>
+  </tr>
 </table>
