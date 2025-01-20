@@ -1,3 +1,9 @@
+.container {
+    line-height: 26px;
+    max-width: 670px;
+}
+
+
 img.me {
     max-width: 350px;
     width: 40%;
@@ -104,12 +110,17 @@ pre.highlight {
   }
 }
 
-.discography p {
-    height: 5em;
+.discography .album {
+    padding-bottom: 4em;
+}
+
+.portfolio .portfolio-item {
+    padding-bottom: 4em;
 }
 
 .portfolio .portfolio-item img {
     float: left;
-    width: 50%;
+    width: 40%;
     margin-right: 2em;
+    height: auto;
 }
