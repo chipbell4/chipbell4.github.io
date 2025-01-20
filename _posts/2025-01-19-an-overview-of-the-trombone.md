@@ -54,9 +54,21 @@ td, th {
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+const plugin = {
+  id: 'customCanvasBackgroundColor',
+  beforeDraw: (chart, args, options) => {
+    const {ctx} = chart;
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = options.color || '#99ffff';
+    ctx.fillRect(0, 0, chart.width, chart.height);
+    ctx.restore();
+  }
+};
 const SHARED_CONFIG = {
     type: 'scatter',
     // Missing data: [...]
+    plugins: [plugin],
     options: {
       elements: {
         point: {
@@ -66,6 +78,11 @@ const SHARED_CONFIG = {
           borderWidth: 5,
         },
       },
+      plugins: {
+        customCanvasBackgroundColor: {
+          color: "#e5f3ff",
+        }
+      },
       scales: {
         x: {
           title: {
@@ -73,7 +90,9 @@ const SHARED_CONFIG = {
             text: "Position",
           },
           type: 'linear',
-          position: 'bottom'
+          position: 'bottom',
+          suggestedMin: 0,
+          suggestedMax: 8,
         },
         y: {
           title: {
@@ -393,6 +412,7 @@ From there, we can graph a line plotting the course of the slide while playing a
 Consider the following example for playing the Bb major scale from Bb3 to Bb4:
 <canvas id="bb-major-normal"></canvas>
 <script>
+
 const positions = [
     {x: 1, y: 4},
     {x: 2.8631371386483475, y: 5},
