@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Overview of the Trombone"
+title: "Trombone: Basic Physics to Art"
 date: 2025-01-19 00:20:19
 categories: music math
 ---
@@ -121,23 +121,30 @@ L = \frac{v}{2f}
 $$
 
 which gives us $L = 2.84m$.
-I've seen numbers closer to 2.7m online, and I'm not sure why there's a discrepancy.
+I've seen numbers closer to $2.7m$ online, however.
+I believe this is because the numbers online post the tubing length with the _tuning slide all the way in_.
+With a tubing length of $2.7m$ you end up with a fundamental around a slightly flat B1.
+This makes sense to me: this gives you room for adjustment for tuning.
 
 ### The Slide
 The slide is the characteristic feature of the trombone that really sets it apart!
-It essentially allows you to change the length of the instrument, altering it's fundamental.
+It essentially allows you to change the length of the instrument, altering it's fundamental on-the-fly.
+Of course, the class trombone "move" is to move the slide while sustaining a note, called a "glissando".
+If you play trombone and haven't done this in middle school band class umpteen times, you haven't lived!
+
 Given our formula above, we can also estimate how long a slide is on a trombone.
 We can do this by estimating how much more length we need to lower the fundamental to an E1, which is the lowest a most trombones can go without additional tubing.
 E1 has a frequency $f = 41.2$, which gives us a tubing length of $L = 4.02m$, or an additional 1.18m.
-Fortunately, the slide "doubles" up on the tubing, so the slide only needs to be half that length, or 590cm.
+Fortunately, the slide "doubles" up on the tubing, so the slide only needs to be half that length, or 59cm.
 
 ### Embouchure and Standing Waves
 Whenever a player buzzes on a mouthpiece, the vibrations resonate in the trombone and produce a sound.
-However, a player can also adjust their embouchure to make the instrument vibrate at various _integer fractions_ of the tube length.
+However, a player can also adjust their embouchure to induce standing waves at various _integer fractions_ of the tube length.
 Players typically refer to these as "partials", in physics they're called harmonics.
 So, without moving the slide a trombone player should be able to play any integer multiple of the fundamental 58.27 Hz.
 However, higher and higher partials requirement greater embouchure strength to hit.
 High school players can rarely play above the 8th partial, but many professionals can play to the 16th and beyond.
+I do well to play beyond the 10th, but I'm working on it...
 
 ### Combining It All
 By combining embouchure and slide movement, trombone players can essentially select any frequency they want.
@@ -172,7 +179,7 @@ This interval is called a "half-step" in Western music.
 This method of dividing the octave is called "twelve tone equal temperment" or 12TET.
 
 ### Slide Positions
-The trombone slide is free to be placed anywhere (as long as it doesn't fall off), but in general trombonist refer to seven "positions" for the slide.
+The trombone slide is free to be placed anywhere (as long as it doesn't fall off which does happen...), but in general trombonist refer to seven "positions" for the slide.
 1st position corresponds to the slide being all the way in, and 7th all the way out.
 Moreover, going out a position, say from 2nd to 3rd, typically corresponds to lowering a single half step.
 Now that we have our half step ratio, we can calculate the exact distance $d$ for the slide's position $p$.
@@ -203,23 +210,23 @@ $$
 d(p) = \frac{\Delta L(p)}{2} = \frac{v}{4F(p)} - \frac{v}{4F(1)}
 $$
 
-Here's a table (TODO CHECK THIS):
+Here's a table:
 
 | Position | Fundamental Pitch | Fundamental Frequency (Hz) | Slide Distance (cm) |
 |----------|-------------------|----------------------------|---------------------|
 | 1        | Bb1               | 58.27                      | 0                   |
 |----------|-------------------|----------------------------|---------------------|
-| 2        | A1                | 55                         | 84                  |
+| 2        | A1                | 55                         | 8.4                 |
 |----------|-------------------|----------------------------|---------------------|
-| 3        | Ab1               | 51.91                      | 174                 |
+| 3        | Ab1               | 51.91                      | 17.4                |
 |----------|-------------------|----------------------------|---------------------|
-| 4        | G1                | 49                         | 269                 |
+| 4        | G1                | 49                         | 26.9                |
 |----------|-------------------|----------------------------|---------------------|
-| 5        | Gb1               | 46.25                      | 369                 |
+| 5        | Gb1               | 46.25                      | 36.9                |
 |----------|-------------------|----------------------------|---------------------|
-| 6        | F1                | 43.65                      | 476                 |
+| 6        | F1                | 43.65                      | 47.6                |
 |----------|-------------------|----------------------------|---------------------|
-| 7        | E1                | 41.20                      | 588                 |
+| 7        | E1                | 41.20                      | 58.8                |
 
 ### But Equal Temperment and Physics Don't Always Agree
 There's a wrinkle in all of this though.
@@ -231,7 +238,26 @@ This means that the trombone is inherently flat at this partial relative to equa
 The 7th partial is even worse. It's a very out of tune Ab4.
 In equal temperment, 415.30 Hz, but as an integer multiple of the fundamental 407.89 Hz.
 
-TODO TABLE HERE
+| Partial | Frequency | 12TET Frequency | Error |
+|---------|-----------|-----------------|-------|
+| 1       | 58.3      | 58.3            | 0%    |
+|---------|-----------|-----------------|-------|
+| 2       | 116.5     | 116.5           | 0%    |
+|---------|-----------|-----------------|-------|
+| 3       | 174.8     | 174.6           | 0.11% |
+|---------|-----------|-----------------|-------|
+| 4       | 233.1     | 233.1           | 0%    |
+|---------|-----------|-----------------|-------|
+| 5       | 291.4     | 293.7           | 0.78% |
+|---------|-----------|-----------------|-------|
+| 6       | 349.6     | 349.2           | 0.11% |
+|---------|-----------|-----------------|-------|
+| 7       | 407.9     | 415.3           | 1.78% |
+|---------|-----------|-----------------|-------|
+| 8       | 466.2     | 466.2           | 0%    |
+
+Notice that the powers of 2 are always in tune.
+Also, the percentage error for the 7th partial doesn't seem like a lot, but it's still extremely noticeable.
 
 ## The Art of Playing In Tune
 Given these tuning quirks that physics gives us, trombonists typically learn to adjust pitch on the fly with the slide (and embouchure) to keep things in tune.
@@ -348,7 +374,7 @@ Some things to note:
   However, you'll see many trombones (most professional symphonic models) also have an "F attachment".
   This is essentially a valve that lowers the fundamental frequency of the trombone down to F1 which will make those missing pitches available.
   Also note that many trombonists can use their embouchure to reach those notes without the help of an attachment.
-  These are called "false tones" and are typically inferior in tone quality.
+  These are called "false tones" but typically have poor tone quality.
 
 ### Routing Passages
 The slide while providing the ability to adjust intonation at will also requires greater physical movement than a valve.
@@ -402,10 +428,12 @@ new Chart(canvas, {
 
 This is mostly how I and other people I've seen play this scale.
 I used a script to generate this, and it's worth pointing out a few things:
-- D4 is in _past 1st position_, because it's a little flat. The script was trying to fix that for me.
-- The sixth partial notes, F4 and Eb4 are "out" a little.
-- However, C4 is further in (even though it's also in 3rd position like Eb4).
-- The G is practically _in-between_ positions.
+- D4 is in _past 1st position_, because it's a little flat (we saw that in the table earlier)
+  The script was trying to fix that for me.
+- The sixth partial notes, F4 and Eb4 are "out" a little because that partial tends to be sharp.
+- However, C4 is further in (even though it's also in 3rd position like Eb4), because the 5th partial is a little flat.
+- The G4 is practically _in-between_ positions.
+  This is how most trombonists play this note.
 
 Now, let's look at a different path one could take
 <canvas id="bb-major-different"></canvas>
@@ -434,14 +462,34 @@ new Chart(newCanvas, {
 </script>
 
 This certainly looks different...
-- There's no zig-zags: the slide moves in one direction for a while and then back. This arguably would let you play faster
+- There's no zig-zags: the slide moves in one direction for a while and then back.
+  This arguably would let you play faster.
 - I've never played this scale like this. Ever. It seems like a good idea, but why haven't I?
+
+### Some Reflection
 
 This has got me thinking about why that first way may _actually be better in practice_, and here's a few thoughts I have:
 - People learn the first pattern earlier so the muscle memory is more "solidified".
   It's easier to play that pattern because you don't have to think as hard about it
 - Tuning is easier in closer positions, like 2nd and 3rd.
   This is probably due to how your arm works.
-  As a result, that second pattern ends up being harder to tune with lots of far-out positions
-- The 7th partial is a little more difficult to tune. So, when one _does_ play on that partial they stick to notes they play a lot on that partial.
-  So, that G4 in 2nd is more likely to be in tune while playing than the Eb4 in 6th because we rarely play Eb4 in 6th.
+  The fine adjustments needed for tuning a note on-the-fly "feel harder" in 5th, 6th, and 7th in my experience.
+  As a result, that second pattern ends up being harder to tune overall with lots of far-out positions
+- The 7th partial is a little more difficult to tune because the positions for in-tune notes aren't in the "normal place".
+  So, when one _does_ play on that partial they stick to notes they play a lot on that partial.
+  So, that G4 in 2nd is more likely to be in tune while playing than the Eb4 in 6th because we rarely play Eb4 in 6th but have a lot of practice with that G4.
+
+I think the major takeway for me is that there are oftentimes slide motions that optimize movement.
+However, intonation is also a factor to be considered.
+Pitches "slot" differently at further positions which can make placement more difficult.
+All of these factors must be considered when planning how to play something.
+It is indeed an art, and not a science!
+
+This does inspire me though: if I (or you!) work through different routing through passages we may find that with some practice an "unconventional pattern" makes something easier!
+
+## Conclusion
+Okay, so this was my whirlwind tour of the trombone.
+There's some fascinating physics and math behind the instrument which we got to see in action.
+Despite that, there is considerable nuance to playing trombone and an accomplished trombonist has to consider not only the physics of the instrument, it's unique limitations and strengths, but also the act of making music.
+I hope this write-up gave you some intuition on those physical considerations of this strange and awkward, but incredibly expressive instrument.
+Happy tuning!
