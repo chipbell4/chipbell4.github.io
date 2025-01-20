@@ -484,6 +484,7 @@ new Chart(newCanvas, {
 This certainly looks different...
 - There's no zig-zags: the slide moves in one direction for a while and then back.
   This arguably would let you play faster.
+- The trade-off is that you have to play further out using some funky alternative positions
 - I've never played this scale like this. Ever. It seems like a good idea, but why haven't I?
 
 ### Some Reflection
