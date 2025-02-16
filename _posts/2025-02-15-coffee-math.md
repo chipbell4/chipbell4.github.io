@@ -48,7 +48,7 @@ const SHARED_CONFIG = {
         x: {
           title: {
             display: true,
-            text: "Position",
+            text: "t",
           },
           type: 'linear',
           position: 'bottom',
@@ -58,7 +58,7 @@ const SHARED_CONFIG = {
         y: {
           title: {
             display: true,
-            text: "Partial",
+            text: "C",
           },
         }
       }
@@ -69,7 +69,7 @@ const SHARED_CONFIG = {
 
 ## Introduction
 I was drinking my normal cup (or three) of coffee the other morning and I reflected on some of the interesting math behind it all, as one does.
-As I thought, I realized that there’s some more interesting math behind how our body absorbs caffeine than meets the eye, and that it would make an interesting topic for me to write about.
+As I thought, I realized that there’s some more interesting math behind how caffeine moves in our body than meets the eye, and that it would make an interesting topic for me to write about.
 So, here goes!
 
 ## A Simplified Model of Caffeine, er... Elimination
@@ -97,7 +97,7 @@ $$
 C = e^{kt + A} = \alpha e^{kt}
 $$
 
-At $t=0$, $C = \alpha$, so we'll rewrite it like this for clarity:
+At $t=0$, $C(t) = \alpha$, so we'll rewrite it like this for clarity:
 
 $$
 C(t) = C(0) e^{kt}
@@ -172,7 +172,13 @@ If we drink $n$ cups of of some caffeined beverage with $m$ mg of caffeine over 
 This gives
 
 $$
-D(t) = \frac{mn}{\tau} R(t; \tau) = \frac{mn}{\tau} \left( H(t) - H(t - \tau) \right)
+D(t) = \frac{mn}{\tau} R(t; \tau)
+$$
+
+or
+
+$$
+D(t) = \frac{mn}{\tau} \left( H(t) - H(t - \tau) \right)
 $$
 
 ### A New Differential Equation
@@ -183,7 +189,7 @@ $$
 $$
 
 ## A Numerical Solution
-There's quite a few methods out there, but we can get a quick approximation of the behavior of that differential equation with [Euler's Method](https://en.wikipedia.org/wiki/Euler_method):
+There's a few methods out there, but we can most easily get a quick approximation of the behavior of that differential equation with [Euler's Method](https://en.wikipedia.org/wiki/Euler_method):
 
 $$
 C(t + \delta t) = C(t) + \delta t \frac{dC(t)}{dt}
