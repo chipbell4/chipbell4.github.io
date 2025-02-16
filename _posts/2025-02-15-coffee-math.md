@@ -13,6 +13,59 @@ categories: math
   text-align: right;
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const plugin = {
+  id: 'customCanvasBackgroundColor',
+  beforeDraw: (chart, args, options) => {
+    const {ctx} = chart;
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = options.color || '#99ffff';
+    ctx.fillRect(0, 0, chart.width, chart.height);
+    ctx.restore();
+  }
+};
+const SHARED_CONFIG = {
+    type: 'scatter',
+    // Missing data: [...]
+    plugins: [plugin],
+    options: {
+      elements: {
+        point: {
+          radius: 5,
+        },
+        line: {
+          borderWidth: 5,
+        },
+      },
+      plugins: {
+        customCanvasBackgroundColor: {
+          color: "#e5f3ff",
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Position",
+          },
+          type: 'linear',
+          position: 'bottom',
+          suggestedMin: 0,
+          suggestedMax: 24,
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Partial",
+          },
+        }
+      }
+    }
+  };
+
+</script>
 
 ## Introduction
 I was drinking my normal cup (or three) of coffee the other morning and I reflected on some of the interesting math behind it all, as one does.
@@ -140,7 +193,7 @@ Here's an interactive graph of that over a 24 hour period.
 Note that $t=0$ corresponds to "when you first start drinking coffee".
 So, a 7:00am cup of coffee would correspond to a bedtime of around $t = 16$ for 8 hours of sleep.
 
-GRAPH here
+<canvas id="graph"></canvas>
 
 <label id="cups">
   <span class="label-container">
@@ -195,9 +248,46 @@ let state = {
   duration: 1,
 };
 
+const canvas = document.getElementById("graph");
+let chart = null;
 function redraw() {
-  console.log("State is:", state);
-  console.log("TODO: Redraw");
+  let dt = 0.01; // small enough, I guess?
+  const chartData = []
+
+  // some constants we're gonna need
+  const k = -Math.log(2) / 5; // Decay term for half life
+  const mnOverTau = state.caffeine * state.cups / state.duration // Scale term for heaviside
+
+  let C = 0.0; // no caffeine in the system yet
+  for (let t = 0.0; t < 24; t += dt) {
+    chartData.push({
+      x: t,
+      y: C,
+    });
+
+    // Calculate dC / dt
+    let impulse = t < state.duration ? 1 : 0; // stop drinking after state.duration
+    let dCdt = k * C + mnOverTau * impulse;
+
+    // update C using Euler's method
+    C = C + dt * dCdt;
+  }
+
+  if (chart !== null) {
+    chart.destroy();
+  }
+
+  chart = new Chart(canvas, {
+    ...SHARED_CONFIG,
+    data: {
+      datasets: [{
+        label: "Caffeine (mg)",
+        data: chartData,
+        showLine: true,
+        backgroundColor: "red",
+      }]
+    }
+  }); 
 }
 
 let redrawTimeout = -1;
