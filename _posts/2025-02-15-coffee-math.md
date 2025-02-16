@@ -33,10 +33,10 @@ const SHARED_CONFIG = {
     options: {
       elements: {
         point: {
-          radius: 5,
+          radius: 2,
         },
         line: {
-          borderWidth: 5,
+          borderWidth: 2,
         },
       },
       plugins: {
