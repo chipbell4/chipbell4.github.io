@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "webrick", "~> 1.7"
+gem "webrick", "~> 1.8"
 gem 'kramdown-math-katex', '~> 1.0', '>= 1.0.1'
 
 group :jekyll_plugins do
