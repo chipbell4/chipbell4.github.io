@@ -46,20 +46,11 @@ const SHARED_CONFIG = {
       },
       scales: {
         x: {
-          title: {
-            display: true,
-            text: "t",
-          },
           type: 'linear',
           position: 'bottom',
           suggestedMin: 0,
-          suggestedMax: 24,
         },
         y: {
-          title: {
-            display: true,
-            text: "C",
-          },
         }
       }
     }
@@ -143,7 +134,26 @@ $$
 
 Here's what it looks like graphed:
 
-TODO
+<canvas id="heaviside"></canvas>
+<script>
+const heaviside = document.getElementById("heaviside");
+new Chart(heaviside, {
+  ...SHARED_CONFIG,
+  data: {
+    datasets: [{
+      label: "Heaviside Function",
+      data: [
+        { x: -1, y: 0 },
+        { x: 0, y: 0 },
+        { x: 0, y: 1 },
+        { x: 1, y: 1 },
+      ],
+      showLine: true,
+      backgroundColor: "red"
+    }]
+  }
+});
+</script>
 
 In a way, you can see this function as modeling a "switch turning on" at $t=0$.
 
@@ -155,7 +165,29 @@ $$
 
 Here's an example for $\tau = 2$.
 
-TODO
+<canvas id="impulse"></canvas>
+<script>
+const impulse = document.getElementById("impulse");
+new Chart(impulse, {
+  ...SHARED_CONFIG,
+  data: {
+    datasets: [{
+      label: "Impulse Function",
+      data: [
+        { x: -1, y: 0 },
+        { x: 0, y: 0 },
+        { x: 0, y: 1 },
+        { x: 1, y: 1 },
+        { x: 2, y: 1 },
+        { x: 2, y: 0 },
+        { x: 3, y: 0 },
+      ],
+      showLine: true,
+      backgroundColor: "red"
+    }]
+  }
+});
+</script>
 
 ### A Heaviside Drinking Function
 Using this impulse function $R$, we can scale it such that it models my caffeine intake.
