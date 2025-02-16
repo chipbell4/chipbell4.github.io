@@ -312,3 +312,26 @@ dataBind("duration", (value) => {
 });
 
 </script>
+
+So this is super fun to play with IMO, and it shows some cool properties of this system:
+- If you drink your coffee very fast, you get a bigger "jolt" because you give the "first" caffeine less time to leave your body before the last bit comes in.
+- If you drink your coffee slowly, you end up going to bed with more caffeine in your system because the last bit of caffeine has less time to leave your body before bedtime.
+
+## Some Final Thoughts and Potential Next Steps
+Some remaining things to explore with this model would be to consider an algebraic solution to the differential equation.
+[Laplace transforms](https://en.wikipedia.org/wiki/Laplace_transform#Table_of_selected_Laplace_transforms) are an ideal candidate for this sort of problem, and can potentially empower us to consider other models for how caffeine enters our body.
+For example, our current model is setup to handle a single day, but I typically drink coffee every morning.
+Could we model $D(t)$ as periodic function?
+And if $D(t)$ is periodic, could some sort of Fourier analysis help here?
+
+And, as interesting as I think this model is, it only models caffeine in your body and not necessarily its effects.
+To model that better we'd have to consider some pharmalogical effects like:
+- [Onset of Action](https://en.wikipedia.org/wiki/Onset_of_action) which would potentially delay when the caffeine actually hits your bloodstream, not instantaneously upon drinking like we did here.
+- [Duration of Action](https://en.wikipedia.org/wiki/Pharmacodynamics#Duration_of_action) which would give us a better model of how the effect of caffeine changes over time in your body. There may be models for that as well. 
+
+There's potentially other pharmacological things to consider that I'm unaware of, but those two factors alone could convert this into a reasonably complex system of equations.
+These systems may not be solvable by hand, and we'd have to resort to a numerical approach like Euler's method or Runge-Kutta.
+
+These all sound like topics for later writing...
+Until then!
+
