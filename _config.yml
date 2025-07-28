@@ -47,6 +47,24 @@ collections:
     title: true
     album_id: true
     output: false
+  compositions:
+    title: true
+    date: true
+    instruments: true
+    downloadable: true
+    short_description: true
+  arrangements:
+    title: true
+    date: true
+    instruments: true
+    downloadable: true
+    short_description: true
+  transcriptions:
+    title: true
+    date: true
+    instruments: true
+    downloadable: true
+    short_description: true
 
 
 # https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/
