@@ -40,6 +40,15 @@ google_analytics: G-KZV3GZMYJV
 
 permalink: /:year/:month/:day/:title/
 
+collections:
+  discography:
+    # link format:
+    # https://bandcamp.com/EmbeddedPlayer/album=3890070958/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/
+    title: true
+    album_id: true
+    output: true
+
+
 # https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/
 kramdown:
   math_engine: katex
