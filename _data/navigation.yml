@@ -1,7 +1,7 @@
 - name: Home
   link: /
-- name: Discography
-  link: /discography
+- name: Music
+  link: /music
 - name: Portfolio
   link: /portfolio/
 - name: Resume
