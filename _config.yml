@@ -53,18 +53,21 @@ collections:
     instruments: true
     downloadable: true
     short_description: true
+    output: true
   arrangements:
     title: true
     date: true
     instruments: true
     downloadable: true
     short_description: true
+    output: true
   transcriptions:
     title: true
     date: true
     instruments: true
     downloadable: true
     short_description: true
+    output: true
 
 
 # https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/
