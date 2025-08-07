@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="music">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p>
+    <a href="{{ page.downloadable }}">Download</a>
+    </p>
+    <p>
+        {{ content }}
+    </p>
+    <div class="pdf-preview">
+        <iframe
+            src="{{ page.downloadable }}"
+            frameBorder="0"
+            scrolling="auto"
+            >
+        </iframe>
+    </div>
+    <div class="audio-preview">
+        <audio controls>
+            <source src="{{ page.preview }}" type="audio/mpeg">
+        </audio>
+    </div>
+</div>

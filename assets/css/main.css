@@ -124,3 +124,12 @@ pre.highlight {
     margin-right: 2em;
     height: auto;
 }
+
+.music .pdf-preview iframe {
+    width: 100%;
+    height: 30em;
+}
+
+.music .audio-preview {
+    text-align: center;
+}
