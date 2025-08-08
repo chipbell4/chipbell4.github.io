@@ -3,6 +3,7 @@ layout: music
 title: Transition
 date: 2024-04-19
 instruments: piano
+score_type: composition
 downloadable: /assets/scores/Transition/Transition.pdf
 short_description: A three movement piano piece I composed during my sabbatical
 ---

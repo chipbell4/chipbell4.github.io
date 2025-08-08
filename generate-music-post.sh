@@ -2,11 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-type="$1" # arrangement, transcription, composition
-name="$2"
+name="$1"
 
-post_file="_${1}s/${name}.md"
-echo "Generating post in $post_file..."
+post_file="_scores/${name}.md"
+echo "Generating score post in $post_file..."
 echo "---" > $post_file
 echo "---" >> $post_file
 echo "layout: music" >> $post_file
