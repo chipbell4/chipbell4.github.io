@@ -1,7 +1,7 @@
 ---
 layout: music
 title: "Cat"
-date: 2025-01-02
+date: 2025-06-11
 instruments: Tenor Sax, Trombone, Keyboard, Bass, Drums
 downloadable: /assets/scores/Cat/Cat.pdf
 preview: /assets/scores/Cat/Cat.mp3
