@@ -18,9 +18,11 @@ layout: default
             >
         </iframe>
     </div>
+    {% if page.preview %}
     <div class="audio-preview">
         <audio controls>
             <source src="{{ page.preview }}" type="audio/mpeg">
         </audio>
     </div>
+    {% endif %}
 </div>

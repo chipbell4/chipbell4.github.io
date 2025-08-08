@@ -3,3 +3,17 @@ layout: default
 ---
 <h1> Compositions </h1>
 
+<div class="container">
+    <div class="row"
+{% for composition in site.compositions %}
+      <div class="col-md-12">
+          <h3>
+              <a href="{{ composition.url }}">
+                {{ composition.title }}
+              </a>
+          </h3>
+          <p class="description">
+          {{ composition.short_description }}
+          </p>
+      </div>
+{% endfor %}
