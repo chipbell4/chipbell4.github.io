@@ -3,6 +3,7 @@ layout: music
 title: Greensleeves
 date: 2025-01-02
 instruments: Flute, Trombone
+score_type: arrangement
 downloadable: /assets/scores/Greensleeves/Greensleeves.pdf
 preview: /assets/scores/Greensleeves/Greensleeves.mp3
 short_description: A little arrangement of Greensleeves for my wife and me to play together
