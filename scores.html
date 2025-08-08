@@ -12,6 +12,13 @@ layout: default
                 {{ score.title }}
               </a>
           </h3>
+          <p>{{ score.date | date: "%B %d, %Y" }}</p>
+          <p>
+            {% assign instruments = score.instruments | split: ',' %}
+            {% for instrument in instruments %}
+              <span class="instrument-chip">{{ instrument }}</span>
+            {% endfor %}
+          </p>
           <p class="description">
           {{ score.short_description }}
           </p>

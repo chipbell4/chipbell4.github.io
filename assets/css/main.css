@@ -86,6 +86,13 @@ pre.highlight {
   margin-right: 0.25rem !important;
 }
 
+.instrument-chip {
+  padding: 0.25em;
+  margin: 0.1em;
+  border-radius: 2px;
+  background-color: rgb(225, 225, 225);
+}
+
 @media (prefers-color-scheme: dark) {
   .footer-icon-links {
     text-decoration: none;
@@ -107,6 +114,10 @@ pre.highlight {
   }
   .dark-avatar {
     display: inline-block !important;
+  }
+
+  .instrument-chip {
+    background-color: rgb(64, 64, 64);
   }
 }
 

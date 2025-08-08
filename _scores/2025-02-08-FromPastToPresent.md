@@ -2,7 +2,7 @@
 layout: music
 title: From Past To Present
 date: 2025-02-08
-instruments: wind-ensemble
+instruments: Wind Ensemble
 score_type: arrangement
 downloadable: /assets/scores/FromPastToPresent/FromPastToPresent.pdf
 preview: /assets/scores/FromPastToPresent/FromPastToPresent.mp3
