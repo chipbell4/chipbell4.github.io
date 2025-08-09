@@ -12,6 +12,7 @@ echo "layout: music" >> $post_file
 echo "title: $name" >> $post_file
 echo "date: 2025-01-02" >> $post_file
 echo "instruments:" >> $post_file
+echo "score_type:" >> $post_file
 echo "downloadable: /assets/scores/$name/$name.pdf" >> $post_file
 echo "preview: /assets/scores/$name/$name.mp3" >> $post_file
 echo "short_description:" >> $post_file
