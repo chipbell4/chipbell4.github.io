@@ -5,8 +5,14 @@ layout: default
 
 <div class="container">
     <div class="row">
+      <div class="col-md-12">
+        <input class="search" type="text" placeholder="Search" />
+      </div>
 {% for score in site.scores %}
-      <div class="col-md-12" data-type="{{ score.score_type }}">
+      <div class="col-md-12 score"
+        data-title="{{ score.title }}"
+        data-instruments="{{ score.instruments }}""
+        data-type="{{ score.score_type }}">
           <h3>
               <a href="{{ score.url }}">
                 {{ score.title }}
@@ -37,10 +43,35 @@ function getQueryParams() {
     return params;
 }
 
-const params = getQueryParams();
-if (params.score_type !== undefined) {
-    const selector = `[data-type]:not([data-type=${params.score_type}])`;
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(e => e.classList.add("d-none"));
+function search(text) {
+  const scores = document.querySelectorAll(".score");
+
+  scores.forEach(score => {
+    const fields = [
+      score.dataset.title,
+      score.dataset.instruments,
+      score.dataset.type,
+    ];
+
+    const visible = fields.some(field => field.toLowerCase().indexOf(text.toLowerCase()) > -1);
+
+    score.classList.remove("d-none");
+    if (!visible) {
+      score.classList.add("d-none");
+    }
+  });
 }
+
+const searchBar = document.querySelector(".search");
+const params = getQueryParams();
+if (params.search !== undefined) {
+  searchBar.value = params.search;
+  search(params.search);
+}
+
+searchBar.addEventListener("keyup", () => {
+  const text = searchBar.value;
+  search(text);
+})
+
 </script>
