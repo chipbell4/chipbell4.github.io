@@ -2,8 +2,8 @@
 layout: music
 title: Sonata For Flute And Piano
 date: 2025-07-01
-instruments:
-score_type:
+instruments: Flute, Piano
+score_type: composition
 downloadable: /assets/scores/Sonata For Flute And Piano/Sonata For Flute And Piano.pdf
 preview: /assets/scores/Sonata For Flute And Piano/Sonata For Flute And Piano.mp3
 short_description: A four-movement sonata for flute and piano
