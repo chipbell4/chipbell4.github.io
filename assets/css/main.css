@@ -3,6 +3,9 @@
     max-width: 670px;
 }
 
+span.navbar-brand {
+  cursor: pointer;
+}
 
 img.me {
     max-width: 350px;
