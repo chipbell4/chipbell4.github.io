@@ -2,8 +2,8 @@
 layout: music
 title: Mad Monster Mansion
 date: 2024-09-28
-instruments:
-score_type:
+instruments: Piano
+score_type: transcription
 downloadable: /assets/scores/Mad Monster Mansion/Mad Monster Mansion.pdf
 preview: /assets/scores/Mad Monster Mansion/Mad Monster Mansion.mp3
 short_description: A partial transcription of some level music from "Banjo Kazooie"
