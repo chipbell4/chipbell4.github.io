@@ -89,6 +89,18 @@ pre.highlight {
   margin-right: 0.25rem !important;
 }
 
+.search-container {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 2px solid;
+}
+
+.search-container .search {
+  padding-left: 2em;
+  width: 100%;
+}
+
 .instrument-chip {
   padding: 0.25em;
   margin: 0.1em;
