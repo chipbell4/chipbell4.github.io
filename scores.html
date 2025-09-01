@@ -32,15 +32,9 @@ layout: default
 {% endfor %}
 
 <script>
-function getQueryParams() {
-    const params = {};
-    const queryString = window.location.search.substring(1);
-    if (!queryString) return params;
-    queryString.split("&").forEach(pair => {
-        const [key, value] = pair.split("=");
-        params[decodeURIComponent(key)] = value ? decodeURIComponent(value) : "";
-    });
-    return params;
+function getSearchText() {
+  const url = new URL(window.location);
+  return url.searchParams.get("search");
 }
 
 function search(text) {
@@ -60,13 +54,19 @@ function search(text) {
       score.classList.add("d-none");
     }
   });
+
+  const url = new URL(window.location);
+  if (url.searchParams.get("search") !== text) {
+    url.searchParams.set("search", text);
+    history.replaceState(null, "", url);
+  }
 }
 
 const searchBar = document.querySelector(".search");
-const params = getQueryParams();
-if (params.search !== undefined) {
-  searchBar.value = params.search;
-  search(params.search);
+const searchText = getSearchText();
+if (searchText !== null) {
+  searchBar.value = searchText;
+  search(searchText);
 }
 
 searchBar.addEventListener("keyup", () => {
