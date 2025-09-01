@@ -20,6 +20,7 @@ layout: default
           </h3>
           <p>{{ score.date | date: "%B %d, %Y" }}</p>
           <p>
+            <span class="instrument-chip">{{ score.score_type | capitalize }}</span>
             {% assign instruments = score.instruments | split: ',' %}
             {% for instrument in instruments %}
               <span class="instrument-chip">{{ instrument }}</span>
