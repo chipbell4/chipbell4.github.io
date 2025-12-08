@@ -222,7 +222,7 @@ A low-pass filter is the tool we need, as it essentially removes those high freq
 A very quick way to perform this smoothing is with a "boxcar filter".
 In a boxcar filter, you essentially replace a value with the average the value with it's neighbors.
 
-So, if $B_i$ is one of our random points in the blob ($0 \le i \t 360$),
+So, if $B_i$ is one of our random points in the blob ( $ 0 \le i \lt 360 $ ),
 we can perform a boxcar filter $F_w$ with width $w$ and get a new a sequence:
 
 $$
