@@ -2,7 +2,7 @@
 layout: post
 title: "Make a Blob"
 date: 2025-11-30 12:24:22
-categories: math game-dev
+categories: math game-dev javascript
 include_scripts: [
     "/assets/blob/blob.js"
 ]
