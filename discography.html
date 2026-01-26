@@ -14,17 +14,25 @@ layout: default
             {{ album.content | markdownify }}
             </p>
             {% if album.bandcamp_album_id %}
-                {% capture album_url %}https://bandcamp.com/EmbeddedPlayer/album={{album.bandcamp_album_id}}/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/artwork=small/transparent=true/{% endcapture %}
+                <iframe
+                    style="border: 0; width: 100%; height: 120px"
+                    src="https://bandcamp.com/EmbeddedPlayer/album={{album.bandcamp_album_id}}/size=large/bgcol=333333/linkcol=0f91ff/tracklist=false/artwork=small/transparent=true/"
+                    seamless
+                    ></iframe>
             {% elsif album.spotify_album_id %}
                 {% capture album_url %}https://open.spotify.com/embed/album/{{album.spotify_album_id}}{% endcapture %}
-            {% else %}
-                {% capture album_url %}{% endcapture %}
+                <iframe
+                    data-testid="embed-iframe"
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/album/{{album.spotify_album_id}}?theme=0"
+                    width="100%"
+                    height="352"
+                    frameBorder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    ></iframe>
             {% endif %}
-            <iframe
-                style="border: 0; width: 100%; height: 120px"
-                src="{{ album_url }}"
-                seamless
-                ></iframe>
         </div>
 {% endfor %}
      </div>
