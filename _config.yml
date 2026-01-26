@@ -42,10 +42,13 @@ permalink: /:year/:month/:day/:title/
 
 collections:
   discography:
-    # link format:
+    # Bandcamp link format
     # https://bandcamp.com/EmbeddedPlayer/album=3890070958/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/
+    # Spotify link format
+    # <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/62gaAG5I7k230a4rCdE4IR?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     title: true
-    album_id: true
+    bandcamp_album_id: false
+    spotify_album_id: false
     output: false
   scores:
     title: true
